@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Task List</title>
+    <link rel="icon" href="Images/list.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <!------------ Todo Heading Title Section ------------>
+      <section class="header">
+        <h1>Quick Task List</h1>
+      </section>
+
+      <!------------- Todo Introduction Section ------------>
+      <section class="todo-intro">
+        <img src="Images/todo.png" alt="" />
+        <h2>
+          Welcome to Quick Task List! <br />
+          Our easy-to-use tool helps you stay on top of your to-do items
+          effortlessly. <br />
+          Add tasks, set reminders, and manage everything in one place to keep
+          your day running smoothly.
+        </h2>
+        <button class="scroll-button" onclick="scrollToNextSection()">
+          <img src="Images/intro-btn.png" alt="" />
+        </button>
+      </section>
+
+      <!----------- Todo Search List Item Section ---------->
+      <section class="todo-search">
+        <form class="search-item">
+          <input
+            type="text"
+            id="search"
+            placeholder="Find Your Tasks Effortlessly Here!" />
+          <img
+            src="Images/search-icon.png"
+            alt="Search Icon"
+            class="search-icon" />
+        </form>
+      </section>
+
+      <!------------ Todo Task List Item Section ----------->
+      <section class="todo-list">
+        <form class="task-form">
+          <input
+            id="taskInput"
+            class="taskInput"
+            placeholder="Enter a new task"
+            required />
+          <button class="task-btn">Add Task</button>
+        </form>
+        <ul class="task-list" id="task-list">
+          <!-- Task items will be dynamically added here -->
+          <li class="list-item">
+            <div class="checkbox-wrapper-44">
+              <label class="toggleButton">
+                <input type="checkbox" />
+                <div>
+                  <svg viewBox="0 0 44 44">
+                    <path
+                      d="M14,24 L21,31 L39.7428882,11.5937758 C35.2809627,6.53125861 30.0333333,4 24,4 C12.95,4 4,12.95 4,24 C4,35.05 12.95,44 24,44 C35.05,44 44,35.05 44,24 C44,19.3 42.5809627,15.1645919 39.7428882,11.5937758"
+                      transform="translate(-2.000000, -2.000000)"></path>
+                  </svg>
+                </div>
+              </label>
+            </div>
+            <p class="list-itemText">
+              Enter Your Task Here - 01 January 24 at 12:00 PM
+            </p>
+            <div class="list-buttons">
+              <button class="edit-btn">
+                <img src="Images/edit.png" alt="Edit" />
+              </button>
+              <button class="delete-btn">
+                <img src="Images/delete.png" alt="Delete" />
+              </button>
+            </div>
+          </li>
+        </ul>
+        <p
+          id="no-results-message"
+          class="no-results-message"
+          style="display: none">
+          Result not found
+        </p>
+      </section>
+
+      <!-------- Popup Modal for Task Date and Time -------->
+      <div id="taskModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span><br />
+          <h2>Task Details</h2>
+          <form id="taskForm">
+            <label for="taskDate">Select Date</label><br />
+            <input type="date" id="taskDate" required /><br />
+            <label for="taskTime">Select Time</label><br />
+            <input type="time" id="taskTime" required /><br />
+            <button type="submit" class="submit-btn">Add Task</button>
+          </form>
+        </div>
+      </div>
+
+      <!------------ Popup for Validation Error ------------>
+      <div id="errorPopup" class="error-popup">
+        <p>Task must be at least 5 characters long!</p>
+      </div>
+
+      <!------------- Popup for Checkbox Is Tick ----------->
+      <div id="taskPopup" class="task-popup">
+        <p>Task completed! Well done!</p>
+      </div>
+
+      <!---- Popup for Recover The List Item Undo Button --->
+      <div id="undoPopup" class="undo-popup">
+        <p>Task deleted!</p>
+        <button id="undoButton" class="undo-btn">Undo</button>
+      </div>
+      
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1097 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide scrollbar but keep the ability to scroll */
+html {
+  overflow: auto;
+  scrollbar-width: none; /* For Firefox */
+}
+
+/* For WebKit browsers (Chrome, Safari, etc.) */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+}
+
+/* ------------ Todo Heading Title Section ------------ */
+
+.header {
+  width: 100%;
+  padding: 0px 0px 0px 0px;
+  margin-top: 70px;
+}
+
+.header h1 {
+  color: white;
+  text-align: center;
+  font-size: 60px;
+  font-weight: 700;
+  font-family: 'Nunito';
+}
+
+/* ------------ Todo Introduction Section ------------ */
+
+.todo-intro {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.todo-intro img {
+  height: 600px;
+  flex-basis: 45%;
+}
+
+.todo-intro h2 {
+  font-family: 'Nunito';
+  font-size: 50px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  text-align: justify;
+  line-height: 80px;
+  flex-basis: 45%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.typing h2 {
+  overflow: hidden; /* Ensures the text is hidden as it's typed */
+  white-space: nowrap; /* Prevents text from wrapping */
+  border-right: 4px solid white; /* The cursor effect */
+  font-family: 'Nunito'; /* Ensure the same font family */
+  animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+.scroll-button {
+  position: fixed;
+  bottom: 20px;
+  height: 60px;
+  width: 60px;
+  left: 48%;
+  transform: translateX(-50%);
+  color: black;
+  background-color: transparent;
+  border: solid 3px #ffdf00;
+  border-radius: 50px;
+  font-size: 20px;
+  font-family: 'Nunito';
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+}
+
+.todo-intro:hover .scroll-button {
+  display: block;
+}
+
+.scroll-button img {
+  height: 50px;
+}
+
+/* ------------ Todo Search List Item Section ------------ */
+
+.todo-search {
+  display: flex;
+  margin-top: 120px;
+  width: 100%;
+}
+
+.search-item {
+  width: 80%;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  margin: auto;
+  position: relative;
+}
+
+#search {
+  font-size: 24px;
+  color: aqua;
+  font-family: 'Nunito';
+  font-weight: 700;
+}
+
+.search-item input {
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  border-bottom: solid #ffdf00 3px;
+  border-radius: 0px;
+  height: 60px;
+  padding-left: 30px;
+  padding-right: 50px;
+}
+
+.search-item input:focus {
+  outline: none;
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px; /* Adjust the value as needed */
+  width: 24px; /* Adjust the size of the icon */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+}
+
+/* ------------ Todo Task List Item Section ------------ */
+
+.todo-list {
+  height: 600px;
+  width: 90%;
+  margin-top: 130px;
+}
+
+.task-form {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+}
+
+.taskInput {
+  width: 80%;
+  height: 50px;
+  outline: none;
+  border: none;
+  border: solid 1.5px #ffdf00;
+  border-radius: 40px;
+  font-size: 23px;
+  color: aqua;
+  background-color: transparent;
+  font-family: 'Nunito';
+  font-weight: 700;
+  padding-left: 30px;
+}
+
+.taskInput:hover {
+  box-shadow: #ffdd001e 0px 14px 28px, #ffdd005a 0px 10px 30px;
+}
+
+.task-btn {
+  height: 55px;
+  width: 130px;
+  outline: none;
+  border: none;
+  border: solid 1.5px #ffdf00;
+  border-radius: 40px;
+  background-color: transparent;
+  font-size: 22px;
+  color: #ffdf00;
+  font-family: 'Nunito';
+  font-weight: 700;
+}
+
+.task-btn:hover {
+  box-shadow: #ffdd001e 0px 14px 28px, #ffdd005a 0px 10px 30px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  height: auto;
+  margin-top: 50px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: auto;
+  width: 100%;
+  border: none;
+  border-bottom: solid 2px #ffdf00;
+  border-radius: 5px;
+  padding: 15px 0px;
+}
+
+.checkbox-wrapper-44 .toggleButton {
+  cursor: pointer;
+  display: flex;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transition: transform 0.14s ease;
+  width: 32px;
+}
+
+.checkbox-wrapper-44 .toggleButton:active {
+  transform: rotateX(30deg);
+}
+
+.checkbox-wrapper-44 .toggleButton input + div {
+  border: 3px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.checkbox-wrapper-44 .toggleButton input + div svg {
+  fill: none;
+  stroke-width: 3.6;
+  stroke: #ffdf00;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  bottom: -3px;
+  z-index: 1;
+  stroke-dashoffset: 124.6;
+  stroke-dasharray: 0 162.6 133 29.6;
+  transition: all 0.4s ease 0s;
+}
+
+.checkbox-wrapper-44 .toggleButton input + div:before,
+.checkbox-wrapper-44 .toggleButton input + div:after {
+  content: '';
+  width: 3px;
+  height: 15px;
+  background: #ffdf00;
+  position: absolute;
+  left: 50%;
+  top: 49%;
+  border-radius: 5px;
+}
+
+.checkbox-wrapper-44 input[type='checkbox'] {
+  display: none;
+  visibility: hidden;
+}
+
+.checkbox-wrapper-44 *,
+.checkbox-wrapper-44 *::before,
+.checkbox-wrapper-44 *::after {
+  box-sizing: border-box;
+}
+
+.checkbox-wrapper-44 .toggleButton input + div:before {
+  opacity: 0;
+  transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  -webkit-animation: bounceInBefore-44 0.3s linear forwards 0.3s;
+  animation: bounceInBefore-44 0.3s linear forwards 0.3s;
+}
+
+.checkbox-wrapper-44 .toggleButton input + div:after {
+  opacity: 0;
+  transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  -webkit-animation: bounceInAfter-44 0.3s linear forwards 0.3s;
+  animation: bounceInAfter-44 0.3s linear forwards 0.3s;
+}
+
+.checkbox-wrapper-44 .toggleButton input:checked + div svg {
+  stroke-dashoffset: 162.6;
+  stroke-dasharray: 0 162.6 28 134.6;
+  transition: all 0.4s ease 0.2s;
+}
+
+.checkbox-wrapper-44 .toggleButton input:checked + div:before {
+  opacity: 0;
+  transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  -webkit-animation: bounceInBeforeDont-44 0.3s linear forwards 0s;
+  animation: bounceInBeforeDont-44 0.3s linear forwards 0s;
+}
+
+.checkbox-wrapper-44 .toggleButton input:checked + div:after {
+  opacity: 0;
+  transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  -webkit-animation: bounceInAfterDont-44 0.3s linear forwards 0s;
+  animation: bounceInAfterDont-44 0.3s linear forwards 0s;
+}
+
+@-webkit-keyframes bounceInBefore-44 {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+@keyframes bounceInBefore-44 {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1) translate(-50%, -50%) rotate(45deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89) translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) rotate(45deg);
+  }
+}
+@-webkit-keyframes bounceInAfter-44 {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+  }
+}
+@keyframes bounceInAfter-44 {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1) translate(-50%, -50%) rotate(-45deg);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0.89) translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+  }
+}
+@-webkit-keyframes bounceInBeforeDont-44 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  }
+}
+@keyframes bounceInBeforeDont-44 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(45deg);
+  }
+}
+@-webkit-keyframes bounceInAfterDont-44 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  }
+}
+@keyframes bounceInAfterDont-44 {
+  0% {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%) rotate(-45deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.3) translate(-50%, -50%) rotate(-45deg);
+  }
+}
+
+.list-itemText {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Nunito';
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: start;
+  width: 100%;
+}
+
+.list-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.edit-btn,
+.delete-btn {
+  background-color: black;
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+}
+
+.edit-btn:hover {
+  box-shadow: #ffdd001e 0px 14px 28px, #ffdd005a 0px 10px 30px;
+}
+
+.delete-btn:hover {
+  box-shadow: #ffdd001e 0px 14px 28px, #ffdd005a 0px 10px 30px;
+}
+
+.edit-btn img {
+  height: 29px;
+}
+
+.delete-btn img {
+  height: 29px;
+}
+
+.no-results-message {
+  color: #ffdf00;
+  text-align: center;
+  margin-top: 100px;
+  font-family: 'Nunito';
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Modal Popup Styling */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.727); /* Black background with opacity */
+}
+
+.modal-content {
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  background-color: rgba(255, 255, 255, 0.13);
+  margin: 15% auto;
+  padding: 25px;
+  border: 1px solid #ffdf00;
+  width: 330px;
+  height: 350px;
+  max-width: 400px;
+  border-radius: 10px;
+  display: block;
+}
+
+.modal-content:hover {
+  box-shadow: #ffdd001e 0px 0px 28px, #ffdd005a 0px 0px 15px;
+}
+
+.close-btn {
+  color: #fffffff2;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #ffdf00;
+}
+
+.modal-content h2 {
+  font-family: 'Nunito';
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  margin-left: 9px;
+  color: white;
+}
+
+#taskForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 210px;
+  margin-top: 51px;
+}
+
+#taskForm label {
+  font-family: 'Nunito';
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+}
+
+#taskDate {
+  width: 93%;
+  height: 30px;
+  padding: 10px;
+  font-family: 'Nunito';
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  color: white;
+  background-color: transparent;
+  outline: solid 2px #ffdf00;
+  border-radius: 10px;
+}
+
+#taskDate:hover,
+#taskDate:focus {
+  box-shadow: #ffdd001e 0px 0px 28px, #ffdd005a 0px 0px 15px;
+}
+
+#taskTime {
+  width: 93%;
+  height: 30px;
+  padding: 10px;
+  font-family: 'Nunito';
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  color: white;
+  background-color: transparent;
+  outline: solid 2px #ffdf00;
+  border-radius: 10px;
+}
+
+#taskTime:hover,
+#taskTime:focus {
+  box-shadow: #ffdd001e 0px 0px 28px, #ffdd005a 0px 0px 15px;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border: solid 2px #ffdf00;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: 'Nunito';
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+.submit-btn:hover {
+  box-shadow: #ffdd001e 0px 0px 28px, #ffdd005a 0px 0px 15px;
+}
+
+/* Style for the error popup */
+.error-popup {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: solid #ffdf00 2px;
+  font-size: 18px;
+  z-index: 1000;
+  box-shadow: #ffdd001e 0px 14px 28px, #ffdd005a 0px 10px 30px;
+}
+
+.error-popup p {
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Nunito';
+  font-size: 20px;
+}
+
+.error-popup.show {
+  display: inline-flex;
+}
+
+/* Styles for the Popup */
+.task-popup {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: solid #ffdf00 2px;
+  font-size: 18px;
+  display: none; /* Initially hidden */
+  z-index: 1000;
+  box-shadow: #ffdd001e 0px 14px 28px, #ffdd005a 0px 10px 30px;
+}
+
+.task-popup p {
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Nunito';
+  font-size: 20px;
+}
+
+.undo-popup {
+  display: none; /* Initially hidden */
+  position: fixed;
+  bottom: 30px;
+  background-color: transparent;
+  border-radius: 30px;
+  border: solid 1px #ffdf00;
+  padding: 10px;
+  width: 90%;
+  height: 35px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.undo-popup p {
+  font-family: 'Nunito';
+  font-size: 19px;
+  font-weight: 700;
+  padding-left: 25px;
+  color: rgb(255, 255, 255);
+}
+
+.undo-btn {
+  background-color: transparent;
+  font-family: 'Nunito';
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  width: 80px;
+  height: 40px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  border: solid 1px #ffdf00;
+}
+
+.undo-btn:hover {
+  color: #ffdf00;
+}
+
+.date-header {
+  font-family: 'Nunito';
+  font-size: 28px;
+  font-weight: 700;
+  text-align: start;
+  color: #ffffff; /* Change to your preferred color */
+  margin: 10px 0px 10px 0px;
+  width: 90%;
+}
+
+.task-item {
+  margin: 10px 0;
+}
+
+.edit-input {
+  background-color: transparent;
+  font-family: 'Nunito';
+  font-size: 30px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: start;
+  width: 53%;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  padding-left: 25px;
+  border: solid 1px #ffdf00;
+}
+
+.edit-date-input {
+  font-family: 'Nunito';
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.427);
+  border: none;
+  border-radius: 30px;
+  border: solid 1px #ffdf00;
+  height: 48px;
+  width: 10%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.edit-time-input {
+  font-family: 'Nunito';
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.427);
+  border: none;
+  border-radius: 30px;
+  border: solid 1px #ffdf00;
+  height: 48px;
+  width: 9%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.save-btn {
+  background-color: transparent;
+  font-family: 'Nunito';
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  width: 8%;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  border: solid 1px #ffdf00;
+}
+
+.cancel-btn {
+  background-color: transparent;
+  font-family: 'Nunito';
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  width: 8%;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 30px;
+  border: solid 1px #ffdf00;
+}
+
+.save-btn:hover,
+.cancel-btn:hover {
+  color: #ffdf00;
+}
+
+/* Media queries */
+
+@media only screen and (max-width: 1250px) {
+  .header {
+    margin-top: 17px;
+  }
+
+  .todo-intro {
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+
+  .todo-intro img {
+    flex-basis: 45%;
+    height: 500px;
+    width: 100%;
+  }
+
+  .todo-intro h2 {
+    font-size: 33px;
+    flex-basis: 45%;
+    margin-top: 10px;
+    text-align: justify;
+    line-height: 60px;
+  }
+
+  .scroll-button {
+    bottom: 20px;
+    height: 50px;
+    width: 50px;
+    left: 49%;
+    border: solid 2px #ffdf00;
+    border-radius: 50px;
+  }
+
+  .scroll-button img {
+    height: 40px;
+    width: 40px;
+    margin: 3px 0px 0px 1px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    margin-top: 40px;
+  }
+
+  .header h1 {
+    font-size: 40px;
+  }
+
+  .todo-intro {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
+  .todo-intro img {
+    height: auto;
+    width: 90%;
+    flex-basis: auto;
+  }
+
+  .todo-intro h2 {
+    font-size: 35px;
+    text-align: justify;
+    line-height: 60px;
+    margin-top: 20px;
+    width: 90%;
+  }
+
+  .search-item {
+    width: 100%;
+  }
+
+  .todo-search {
+    width: 90%;
+  }
+
+  .search-item input {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 40px;
+  }
+
+  .search-icon {
+    right: 10px; /* Adjust position for smaller screens */
+    width: 20px;
+  }
+}
+
+/* Styles for small phones */
+@media only screen and (max-width: 480px) {
+  .header {
+    margin-top: 20px;
+  }
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .todo-intro {
+    height: 720px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .todo-intro img {
+    height: 310px;
+    width: 310px;
+    margin-top: 30px;
+    margin-left: 10px;
+  }
+
+  .todo-intro h2 {
+    font-size: 26px;
+    text-align: justify;
+    line-height: 41px;
+    height: 240px;
+    margin-top: 10px;
+  }
+
+  .scroll-button {
+    bottom: 10px;
+    height: 40px;
+    width: 40px;
+    left: 49%;
+    border: solid 2px #ffdf00;
+    border-radius: 50px;
+  }
+
+  .scroll-button img {
+    height: 31px;
+    width: 31px;
+    margin: 3px 0px 0px 0px;
+  }
+
+  .todo-search {
+    width: 90%;
+    margin-top: 30px;
+  }
+
+  .search-item input {
+    height: 45px;
+    font-size: 1px;
+    padding-left: 15px;
+    padding-right: 35px;
+  }
+
+  #search {
+    font-size: 19px;
+  }
+
+  .search-icon {
+    width: 18px;
+    right: 8px; /* Adjust position for smaller screens */
+  }
+
+  .list-itemText {
+    font-size: 17px;
+    line-height: 20px;
+    gap: 1px;
+    width: 76%;
+  }
+
+  .list-item {
+    gap: 2px;
+    justify-content: start;
+  }
+
+  .taskInput {
+    height: 45px;
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+  .task-btn {
+    height: 47px;
+    font-size: 18px;
+  }
+
+  .task-popup {
+    padding: 14px 0px;
+    width: 300px;
+  }
+
+  .task-popup p {
+    font-size: 21px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .error-popup {
+    padding: 14px 0px;
+    width: 350px;
+  }
+
+  .error-popup p {
+    font-size: 17px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .edit-input {
+    font-size: 15px;
+    height: 25px;
+    padding-left: 10px;
+    width: 70%;
+    padding: 0px 0px 0px 5px;
+  }
+
+  .edit-date-input,
+  .edit-time-input {
+    font-size: 9px;
+    height: 25px;
+    width: 24%;
+    padding: 0px 0px;
+  }
+
+  .save-btn,
+  .cancel-btn {
+    font-size: 8px;
+    height: 25px;
+    padding-left: 10px;
+    width: 40%;
+    padding: 0;
+  }
+
+  .list-buttons {
+    gap: 2px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    height: 25px;
+    width: 25px;
+  }
+
+  .edit-btn img,
+  .delete-btn img {
+    height: 20px;
+  }
+
+  .no-results-message {
+    font-size: 20px;
+  }
+
+  #taskDate,
+  #taskTime {
+    color: white;
+    padding-right: 20px;
+  }
+}
